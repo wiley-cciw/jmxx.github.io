@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>途羚加盟信息填写</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      /* 保持原有背景图 */
+      background: url("背景图.jpg") no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+      font-family: "PingFang SC", sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px;
+    }
+    .logo {
+      width: 100px;
+      height: auto;
+      margin: 10px 0 20px;
+    }
+    .form-container {
+      width: 100%;
+      max-width: 600px;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    .form-title {
+      font-size: 22px;
+      color: #333;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    .form-desc {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 8px;
+    }
+    input, select {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 16px;
+      color: #333;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    input:focus, select:focus {
+      border-color: #1E88E5;
+    }
+    .region-selects {
+      display: flex;
+      gap: 10px;
+    }
+    .region-selects select {
+      flex: 1;
+    }
+    .radio-group {
+      display: flex;
+      gap: 15px;
+      margin-top: 10px;
+    }
+    .radio-group button {
+      flex: 1;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background-color: #fff;
+      color: #333;
+      font-size: 16px;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .radio-group button.active {
+      background-color: #1E88E5;
+      border-color: #1E88E5;
+      color: #fff;
+    }
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 10px;
+    }
+    .checkbox-group button {
+      flex: 1 1 calc(33.333% - 10px);
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background-color: #fff;
+      color: #333;
+      font-size: 16px;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .checkbox-group button.active {
+      background-color: #1E88E5;
+      border-color: #1E88E5;
+      color: #fff;
+    }
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      background-color: #1E88E5;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      font-size: 17px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 10px;
+    }
+    .submit-btn:hover {
+      background-color: #1976D2;
+    }
+    .success-tip {
+      display: none;
+      color: #333;
+      font-size: 17px;
+      text-align: center;
+      margin-top: 20px;
+      padding: 20px;
+      background-color: rgba(230, 247, 255, 0.8);
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Logo区域 -->
+  <img src="logo.png" alt="途羚Logo" class="logo">
+  
+  <!-- 表单容器 -->
+  <div class="form-container">
+    <p class="form-desc">如有加盟意向，请填写以下信息，我们将尽快与您联系</p>
+    
+    <form id="joinForm" action="https://formspree.io/f/xkgvlzba" method="POST">
+      <!-- 您的姓名 -->
+      <div class="form-group">
+        <label for="name">您的姓名 *</label>
+        <input type="text" name="姓名" id="name" required>
+      </div>
+      
+      <!-- 您的电话 -->
+      <div class="form-group">
+        <label for="phone">您的电话 *</label>
+        <input type="tel" name="电话" id="phone" required>
+      </div>
+      
+      <!-- 加盟地区（三级下拉） -->
+      <div class="form-group">
+        <label>加盟地区 *</label>
+        <div class="region-selects">
+          <select name="省份" id="province" required>
+            <option value="" disabled selected>选择省份</option>
+            <option value="北京">北京</option>
+            <option value="上海">上海</option>
+            <option value="广东">广东</option>
+            <option value="江苏">江苏</option>
+            <option value="浙江">浙江</option>
+            <option value="山东">山东</option>
+            <option value="河南">河南</option>
+            <option value="湖北">湖北</option>
+            <option value="湖南">湖南</option>
+            <option value="四川">四川</option>
+            <option value="陕西">陕西</option>
+            <option value="辽宁">辽宁</option>
+            <option value="天津">天津</option>
+            <option value="重庆">重庆</option>
+            <option value="河北">河北</option>
+            <option value="山西">山西</option>
+            <option value="安徽">安徽</option>
+            <option value="福建">福建</option>
+            <option value="江西">江西</option>
+            <option value="云南">云南</option>
+            <option value="贵州">贵州</option>
+            <option value="甘肃">甘肃</option>
+            <option value="青海">青海</option>
+            <option value="台湾">台湾</option>
+            <option value="内蒙古">内蒙古</option>
+            <option value="广西">广西</option>
+            <option value="宁夏">宁夏</option>
+            <option value="新疆">新疆</option>
+            <option value="西藏">西藏</option>
+            <option value="海南">海南</option>
+            <option value="香港">香港</option>
+            <option value="澳门">澳门</option>
+          </select>
+          
+          <select name="城市" id="city" required>
+            <option value="" disabled selected>选择城市</option>
+            <!-- 一线城市 -->
+            <option value="北京">北京</option>
+            <option value="上海">上海</option>
+            <option value="广州">广州</option>
+            <option value="深圳">深圳</option>
+            
+            <!-- 二线城市 -->
+            <option value="天津">天津</option>
+            <option value="重庆">重庆</option>
+            <option value="成都">成都</option>
+            <option value="杭州">杭州</option>
+            <option value="武汉">武汉</option>
+            <option value="西安">西安</option>
+            <option value="南京">南京</option>
+            <option value="长沙">长沙</option>
+            <option value="沈阳">沈阳</option>
+            <option value="青岛">青岛</option>
+            <option value="郑州">郑州</option>
+            <option value="大连">大连</option>
+            <option value="东莞">东莞</option>
+            <option value="宁波">宁波</option>
+            <option value="济南">济南</option>
+            <option value="哈尔滨">哈尔滨</option>
+            <option value="长春">长春</option>
+            <option value="厦门">厦门</option>
+            <option value="福州">福州</option>
+            <option value="无锡">无锡</option>
+            <option value="苏州">苏州</option>
+            <option value="合肥">合肥</option>
+            <option value="佛山">佛山</option>
+            <option value="石家庄">石家庄</option>
+            <option value="太原">太原</option>
+            <option value="南昌">南昌</option>
+            <option value="南宁">南宁</option>
+            <option value="昆明">昆明</option>
+            <option value="贵阳">贵阳</option>
+            <option value="兰州">兰州</option>
+            <option value="海口">海口</option>
+            <option value="乌鲁木齐">乌鲁木齐</option>
+            <option value="呼和浩特">呼和浩特</option>
+          </select>
+          
+          <select name="区域" id="district" required>
+            <option value="" disabled selected>选择区域</option>
+            <option value="默认区域">请根据实际城市选择区域</option>
+          </select>
+        </div>
+      </div>
+      
+      <!-- 物业信息（只有有或没有） -->
+      <div class="form-group">
+        <label>是否有物业 *</label>
+        <div class="radio-group">
+          <button type="button" data-value="有">有</button>
+          <button type="button" data-value="没有">没有</button>
+          <input type="hidden" name="是否有物业" required>
+        </div>
+      </div>
+      
+      <!-- 您想了解的内容（不含酒店筹建选项） -->
+      <div class="form-group">
+        <label>您想了解的内容 * (可多选)</label>
+        <div class="checkbox-group">
+          <button type="button" data-value="加盟条件和费用">加盟条件和费用</button>
+          <button type="button" data-value="物业选址">物业选址</button>
+          <button type="button" data-value="投资资金">投资资金</button>
+          <button type="button" data-value="加盟支持">加盟支持</button>
+          <button type="button" data-value="运营模式">运营模式</button>
+          <button type="button" data-value="其它问题">其它问题</button>
+          <input type="hidden" name="您想了解的内容" required>
+        </div>
+      </div>
+      
+      <button type="submit" class="submit-btn">提交加盟意向</button>
+    </form>
+    
+    <div class="success-tip" id="successTip">
+      提交成功，感谢您对途羚的关注！<br>
+      我们将尽快安排专人与您联系。
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('joinForm');
+    const successTip = document.getElementById('successTip');
+    const radioBtns = document.querySelectorAll('.radio-group button');
+    const checkboxBtns = document.querySelectorAll('.checkbox-group button');
+    const radioHidden = form.querySelector('input[name="是否有物业"]');
+    const checkboxHidden = form.querySelector('input[name="您想了解的内容"]');
+    const provinceSelect = document.getElementById('province');
+    const citySelect = document.getElementById('city');
+    const districtSelect = document.getElementById('district');
+    
+    let radioValue = '';
+    let checkboxValues = [];
+
+    // 城市区域数据（简化版）
+    const districtData = {
+      "北京": ["东城区", "西城区", "朝阳区", "丰台区", "石景山区", "海淀区", "顺义区", "通州区", "大兴区", "房山区", "门头沟区", "昌平区", "平谷区", "密云区", "怀柔区", "延庆区"],
+      "上海": ["黄浦区", "徐汇区", "长宁区", "静安区", "普陀区", "虹口区", "杨浦区", "闵行区", "宝山区", "嘉定区", "浦东新区", "金山区", "松江区", "青浦区", "奉贤区", "崇明区"],
+      "广州": ["越秀区", "荔湾区", "海珠区", "天河区", "白云区", "黄埔区", "番禺区", "花都区", "南沙区", "增城区", "从化区"],
+      "深圳": ["福田区", "罗湖区", "南山区", "盐田区", "宝安区", "龙岗区", "龙华区", "坪山区", "光明区"]
+      // 可根据需要扩展更多城市的区域
+    };
+
+    // 城市选择变化时更新区域选项
+    citySelect.addEventListener('change', function() {
+      const selectedCity = this.value;
+      districtSelect.innerHTML = '<option value="" disabled selected>选择区域</option>';
+      
+      if (districtData[selectedCity]) {
+        districtData[selectedCity].forEach(district => {
+          const option = document.createElement('option');
+          option.value = district;
+          option.textContent = district;
+          districtSelect.appendChild(option);
+        });
+      } else {
+        const option = document.createElement('option');
+        option.value = "其他区域";
+        option.textContent = "请手动填写详细区域";
+        districtSelect.appendChild(option);
+      }
+    });
+
+    // 单选按钮：点击切换选中状态
+    radioBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        radioBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        radioValue = btn.dataset.value;
+        radioHidden.value = radioValue;
+      });
+    });
+
+    // 多选按钮：点击切换选中状态
+    checkboxBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const value = btn.dataset.value;
+        if (btn.classList.contains('active')) {
+          btn.classList.remove('active');
+          checkboxValues = checkboxValues.filter(v => v !== value);
+        } else {
+          btn.classList.add('active');
+          checkboxValues.push(value);
+        }
+        checkboxHidden.value = checkboxValues.join(',');
+      });
+    });
+
+    // 表单提交逻辑
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      // 验证单选和多选是否有选择
+      if (!radioValue) {
+        alert('请选择“是否有物业”');
+        return;
+      }
+      if (checkboxValues.length === 0) {
+        alert('请至少选择一项“您想了解的内容”');
+        return;
+      }
+      
+      const formspreeUrl = form.action;
+      const formData = new FormData(form);
+      
+      try {
+        const response = await fetch(formspreeUrl, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+        
+        if (response.ok) {
+          form.style.display = 'none';
+          successTip.style.display = 'block';
+        } else {
+          alert('提交失败，请稍后重试');
+        }
+      } catch (error) {
+        console.error('提交异常:', error);
+        alert('网络错误，请检查网络连接');
+      }
+    });
+  </script>
+</body>
+</html>
